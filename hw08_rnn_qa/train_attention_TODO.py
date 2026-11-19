@@ -21,8 +21,8 @@ import pickle
 #      - 需手动完成 score -> softmax(对齐权重) -> context(加权求和) 三步；
 #      可参考 Bahdanau et al. 2015 (additive) 或 Luong et al. 2015 (dot/general)。
 #   3) 本题代码全部整合在 train_attention.py 这一个文件里（数据集等仍复用现有模块）。
-# 具体填写位置见下面 main() / train() 内的 TODO 注释。
 
+# 代码各个部分请手动添加详细注释。
 
 def main(args):
     pass
@@ -40,7 +40,9 @@ if __name__ == '__main__':
     argparser.add_argument('--learning_rate', type=float, default=0.006)
     argparser.add_argument('--batch_size', type=int, default=32)
     argparser.add_argument('--cuda', action='store_true')
-    argparser.add_argument('-m', '--model_path', type=str, default='saves/rnn.pt')
+    
+    # 建议加载已训练好的编码器模型
+    argparser.add_argument('-m_enc', '--encoder_model_path', type=str, default='saves/rnn.pt')
 
     args = argparser.parse_args()
 
